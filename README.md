@@ -1,4 +1,6 @@
-# Waresnew Tap
+# Homebrew Tap
+
+Holds formulae for personal use.
 
 ## How do I install these formulae?
 
