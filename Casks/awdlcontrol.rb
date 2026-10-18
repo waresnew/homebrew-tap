@@ -14,18 +14,18 @@ cask("awdlcontrol") do
   end
 
   depends_on(arch: :arm64)
-  depends_on(macos: ">= :ventura")
+  depends_on(macos: :ventura)
 
   app("AWDLControl.app")
 
   # disable Sparkle's automatic update checks/installs so no update dialog
   # pops up when the app is launched/killed by automation
-  postflight do
-    system_command(
+  postflight_steps do
+    run(
       "/usr/bin/defaults",
       args: ["write", "com.jh.AWDLControl", "SUEnableAutomaticChecks", "-bool", "false"]
     )
-    system_command(
+    run(
       "/usr/bin/defaults",
       args: ["write", "com.jh.AWDLControl", "SUAutomaticallyUpdate", "-bool", "false"]
     )
